@@ -8,13 +8,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 {/* Hooks */ }
- import { useState, useRef } from 'react';
+ import { useRef } from 'react';
 
    
 export default function ControlWeather() {
 
      {/* Variable de estado y función de actualización */}
-     let [selected, setSelected] = useState(-1)
+     
      {/* Constante de referencia a un elemento HTML */ }
      const descriptionRef = useRef<HTMLDivElement>(null);
     {/* Arreglo de objetos */}
@@ -32,7 +32,7 @@ export default function ControlWeather() {
 
         let idx = parseInt(event.target.value)
         // alert( idx );
-        setSelected( idx );
+        
 
         {/* Modificación de la referencia descriptionRef */}
         if (descriptionRef.current !== null) {
@@ -73,12 +73,7 @@ export default function ControlWeather() {
                 </FormControl>
 
             </Box>
-            {/* Use la variable de estado para renderizar del item seleccionado */}
-             <Typography mt={2} component="p" color="text.secondary">
-             {
-                 (selected >= 0)?items[selected]["description"]:""
-             }
-             </Typography>
+            
 
             <Typography ref={descriptionRef} mt={2} component="p" color="text.secondary" />
 				
